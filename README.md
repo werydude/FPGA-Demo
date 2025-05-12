@@ -1,0 +1,3 @@
+- Press left and right buttons to select display segment
+- Move 4 LSB (right-most) switches to encode hex value
+- Press center button to commit value to display
