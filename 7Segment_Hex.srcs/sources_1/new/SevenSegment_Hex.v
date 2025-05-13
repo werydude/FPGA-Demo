@@ -43,20 +43,22 @@
 // But if things go weird, we'll increase.
 
 `define DISP_COUNTER_BITS 16
-`define DISP_COUNTERS_SEG_BITS `DISP_COUNTER_BITS - 2
+`define DISP_COUNTER_SEG_BITS `DISP_COUNTER_BITS - 2
+`define DISP_SEG_DEFAULT ~7'b1001001
 
 module SevenSegment_Hex(
     input clk,
-    input btnC,
+    input en,
     input [1:0] an_sel,
     input [6:0] segData,
     output reg [6:0] seg,
     output reg [3:0] an,
     output reg dp
-    );
+);
 
     reg [1:0] an_curr = 0;
-    reg [`DISP_COUNTERS_SEG_BITS-1:0] disp_counter = 0;
+    reg init = 1; // We need to wait to populate segData correctly
+    reg [`DISP_COUNTER_SEG_BITS-1:0] disp_counter = 1;
     reg disp_en;
     
     reg [6:0] segState [0:3];
@@ -73,15 +75,16 @@ module SevenSegment_Hex(
     end
     
     // Select data //
-    always @ (btnC) begin
-        if (an_curr == an_sel && btnC) segState[an_curr] <= segData;
+    always @ (posedge clk) begin
+        if ((an_curr == an_sel && en) && !init) segState[an_curr] <= segData;
     end
     
     // Write Data to display //
     always @ (posedge clk) begin
         an <= ~(4'b0001 << an_curr);
-        dp <= ~((an_curr == an_sel) && ~btnC);
+        dp <= ~((an_curr == an_sel) && ~en);
         seg <= segState[an_curr];
+        init <= 0;
     end
     
 

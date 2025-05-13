@@ -1,6 +1,10 @@
 0.7
 2020.2
 Mar  6 2025
-19:11:35
-C:/Users/tahv/Code/FPGA/Xilinx/Projects/7Segment_Hex/7Segment_Hex.sim/sim_1/behav/xsim/glbl.v,1734094861,verilog,,,,glbl,,,,,,,,
-C:/Users/tahv/Code/FPGA/Xilinx/Projects/7Segment_Hex/7Segment_Hex.srcs/sources_1/new/7Segment_Hex.v,1746758137,verilog,,,,SevenSegment_Hex,,,,,,,,
+19:11:57
+/home/tahv/FPGA/Xilinx/Projects/FPGA-Demo/7Segment_Hex.sim/sim_1/behav/xsim/glbl.v,1747074804,verilog,,,,glbl,,,,,,,,
+/home/tahv/FPGA/Xilinx/Projects/FPGA-Demo/7Segment_Hex.srcs/sources_1/new/Btn_MoveSelect.v,1747074804,verilog,,/home/tahv/FPGA/Xilinx/Projects/FPGA-Demo/7Segment_Hex.srcs/sources_1/new/SevenSegment_Hex.v,,Btn_MoveSelect,,,,,,,,
+/home/tahv/FPGA/Xilinx/Projects/FPGA-Demo/7Segment_Hex.srcs/sources_1/new/SevenSegment_Hex.v,1747103093,verilog,,/home/tahv/FPGA/Xilinx/Projects/FPGA-Demo/7Segment_Hex.srcs/sources_1/new/sw_EncodeHex.v,,SevenSegment_Hex,,,,,,,,
+/home/tahv/FPGA/Xilinx/Projects/FPGA-Demo/7Segment_Hex.srcs/sources_1/new/btn_inc.v,1747077300,verilog,,,,btn_inc,,,,,,,,
+/home/tahv/FPGA/Xilinx/Projects/FPGA-Demo/7Segment_Hex.srcs/sources_1/new/main.v,1747103477,verilog,,,/home/tahv/FPGA/Xilinx/Projects/FPGA-Demo/7Segment_Hex.srcs/sources_1/new/sw_EncodeHex.v;/home/tahv/FPGA/Xilinx/Projects/FPGA-Demo/7Segment_Hex.srcs/sources_1/new/Btn_MoveSelect.v;/home/tahv/FPGA/Xilinx/Projects/FPGA-Demo/7Segment_Hex.srcs/sources_1/new/SevenSegment_Hex.v;/home/tahv/FPGA/Xilinx/Projects/FPGA-Demo/7Segment_Hex.srcs/sources_1/new/btn_inc.v,main,,,,,,,,
+/home/tahv/FPGA/Xilinx/Projects/FPGA-Demo/7Segment_Hex.srcs/sources_1/new/sw_EncodeHex.v,1747103722,verilog,,/home/tahv/FPGA/Xilinx/Projects/FPGA-Demo/7Segment_Hex.srcs/sources_1/new/main.v,,sw_EncodeHex,,,,,,,,
