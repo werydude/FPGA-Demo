@@ -1,4 +1,4 @@
-See [[Wiki|/wiki]] for report
+See [Wiki](https://github.com/werydude/FPGA-Demo/wiki) for report
 
 Usage:
 - Press left and right buttons to select display segment
