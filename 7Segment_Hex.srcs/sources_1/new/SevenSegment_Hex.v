@@ -43,25 +43,24 @@
 // But if things go weird, we'll increase.
 
 `define DISP_COUNTER_BITS 16
-`define DISP_COUNTER_SEG_BITS `DISP_COUNTER_BITS - 2
+`define DISP_SEGS 4   // Insert immature joke here.
+`define DISP_COUNTER_SEG_BITS `DISP_COUNTER_BITS - $clog2(`DISP_SEGS)
 `define DISP_SEG_DEFAULT ~7'b1001001
 
 module SevenSegment_Hex(
     input clk,
     input en,
     input [1:0] an_sel,
-    input [6:0] segData,
+    input [(`DISP_SEGS*7)-1:0] segState, // [3:0] segState [6:0]
     output reg [6:0] seg,
-    output reg [3:0] an,
+    output reg [`DISP_SEGS:0] an,
     output reg dp
 );
 
     reg [1:0] an_curr = 0;
-    reg init = 1; // We need to wait to populate segData correctly
+    reg init = 0; // We need to wait to populate segData correctly
     reg [`DISP_COUNTER_SEG_BITS-1:0] disp_counter = 1;
     reg disp_en;
-    
-    reg [6:0] segState [0:3];
     
     // Refresh Display //
     always @ (posedge clk) begin
@@ -70,21 +69,19 @@ module SevenSegment_Hex(
         
         // When counter overflows, select next
         // display segment.
-        if (!disp_counter) disp_en <= 1'b1;
-        if (disp_en) an_curr <= an_curr + 1;
-    end
-    
-    // Select data //
-    always @ (posedge clk) begin
-        if ((an_curr == an_sel && en) && !init) segState[an_curr] <= segData;
+        if (!disp_counter) begin
+            disp_en <= 1'b1;
+        end
+        if (disp_en) begin
+            an_curr <= an_curr + 1;
+        end
     end
     
     // Write Data to display //
     always @ (posedge clk) begin
         an <= ~(4'b0001 << an_curr);
-        dp <= ~((an_curr == an_sel) && ~en);
-        seg <= segState[an_curr];
-        init <= 0;
+        dp <= ~((an_curr == an_sel) && !en);
+        seg <= segState[(an_curr*7)+:7];
     end
     
 
