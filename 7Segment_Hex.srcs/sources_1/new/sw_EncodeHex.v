@@ -1,34 +1,27 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: Computer and Engineering Research @ WVC, directed by Takyiu Liu
-// Engineer: Tahv Demayo
+// Company:  Computer and Engineering Research @ WVC, directed by Takyiu Liu
+// Engineer: Tahv Demayo 
 // 
 // Create Date: 05/11/2025 07:34:03 PM
 // Design Name: 
 // Module Name: sw_EncodeHex
-// Project Name: 
+// Project Name: FPGA-Demo
 // Target Devices: Basys 3
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Description: Converts hexidecimal data to patterns for display on a 7-segment display.
 //////////////////////////////////////////////////////////////////////////////////
 
 
 
 module sw_EncodeHex(
     input clk,
-    input [3:0] hexData,
-    output [6:0] segPattern
+    input [3:0] hexData,    // Hexidecimal Data
+    output [6:0] segPattern // 7-Segment Display pattern
 );   
+    // Hexidecimal segement patterns.
     function [6:0] pattern (input [3:0] hex);
         case (hex)
-            4'h00:      pattern = ~7'b0111111; // 
+            4'h00:      pattern = ~7'b0111111;  
             4'h01:      pattern = ~7'b0000110;
             4'h02:      pattern = ~7'b1011011;
             4'h03:      pattern = ~7'b1001111;
@@ -44,10 +37,10 @@ module sw_EncodeHex(
             4'h0D:      pattern = ~7'b1011110;
             4'h0E:      pattern = ~7'b1111001;
             4'h0F:      pattern = ~7'b1110001;
-            default:    pattern = ~7'b1001001; // Three bars mean error
+            default:    pattern = ~7'b1001001; // Three bars mean error; should never happen.
         endcase
     endfunction
     
-    assign segPattern = pattern(hexData);
+    assign segPattern = pattern(hexData);      
     
 endmodule

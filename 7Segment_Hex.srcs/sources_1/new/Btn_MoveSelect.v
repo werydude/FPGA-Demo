@@ -1,22 +1,14 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: Computer and Engineering Research @ WVC, directed by Takyiu Liu
-// Engineer: Tahv Demayo
+// Company:  Computer and Engineering Research @ WVC, directed by Takyiu Liu
+// Engineer: Tahv Demayo 
 // 
 // Create Date: 05/11/2025 07:34:03 PM
-// Design Name: 
+// Design Name: Segment Display Selector
 // Module Name: Btn_MoveSelect
-// Project Name: 
+// Project Name: FPGA-Demo
 // Target Devices: Basys 3
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Description: Selects 1 of the 4 segments of 4x7-segment display using L/R buttons 
 //////////////////////////////////////////////////////////////////////////////////
 
 
