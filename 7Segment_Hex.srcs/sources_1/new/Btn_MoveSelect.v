@@ -27,15 +27,15 @@ module Btn_MoveSelect(
     output reg [1:0] sel
     );
     
-    reg old_btnL, old_btnR;
+    reg btnL_dbnc, btnR_dbnc;
     
     initial sel <= 0;
     
     // Move "cursor" //
     always @ (posedge clk) begin
-        old_btnL <= btnL;
-        old_btnR <= btnR;
-        if ((old_btnL != btnL) || (old_btnR != btnR)) begin
+        btnL_dbnc <= btnL;
+        btnR_dbnc <= btnR;
+        if ((btnL_dbnc != btnL) || (btnR_dbnc!= btnR)) begin
             case({btnL, btnR, sel})
                 6'b01_00: sel <= 3;
                 6'b01_01,

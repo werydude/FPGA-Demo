@@ -2,6 +2,7 @@
 verilog xil_defaultlib  \
 "../../../../7Segment_Hex.srcs/sources_1/new/Btn_MoveSelect.v" \
 "../../../../7Segment_Hex.srcs/sources_1/new/SevenSegment_Hex.v" \
+"../../../../7Segment_Hex.srcs/sources_1/new/btn_inc.v" \
 "../../../../7Segment_Hex.srcs/sources_1/new/sw_EncodeHex.v" \
 "../../../../7Segment_Hex.srcs/sources_1/new/main.v" \
 
